@@ -32,6 +32,7 @@ let paddle1 = {
   x: 0,
   y: 0,
 };
+
 // Paddle 2 dimensions and position
 let paddle2 = {
   width: 25,
@@ -219,5 +220,4 @@ function gameStart() {
 }
 
 gameStart();
-// window.addEventListener("click", gameStart);
 window.addEventListener("keydown", changeDirection);
