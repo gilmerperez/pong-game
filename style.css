@@ -2,8 +2,8 @@
   margin: 0;
   padding: 0;
   color: white;
-  color: white;
   overflow: hidden;
+  font-weight: bold;
   text-align: center;
   box-sizing: border-box;
   background-color: black;
@@ -11,9 +11,8 @@
 }
 
 h1 {
-  color: white;
+  padding: 10px;
   font-size: 5rem;
-  margin-top: 15px;
 }
 
 #gameBoard {
@@ -21,22 +20,19 @@ h1 {
 }
 
 #scoreText {
-  font-size: 5rem;
+  margin-top: 10px;
+  font-size: 4.5rem;
 }
 
 #restartButton {
-  border: none;
   cursor: pointer;
   margin-top: 10px;
-  padding: 4px 10px;
-  font-weight: bold;
-  font-size: 2.75rem;
-  letter-spacing: 10px;
+  padding: 5px 10px;
+  font-size: 2.5rem;
   transition: 0.3s ease;
-  border: 6px solid black;
+  border: 3px solid black;
 }
 
 #restartButton:hover {
-  border: 6px solid white;
-  box-shadow: 0 0 20px white, 0 0 20px hsla(0, 0%, 100%, 0.1);
+  border: 3px solid hsl(0, 0%, 100%);
 }
