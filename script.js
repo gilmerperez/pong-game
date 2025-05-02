@@ -96,14 +96,13 @@ function MoveBall() {
 }
 
 function drawBall(ballX, ballY) {
-  ctx.lineWidth = 2;
-  ctx.fillStyle = ballColor;
-  ctx.strokeStyle = ballBorderColor;
-
-  ctx.fill();
-  ctx.stroke();
   ctx.beginPath();
   ctx.arc(ballX, ballY, ballRadius, 0, 2 * Math.PI);
+  ctx.fillStyle = ballColor;
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = ballBorderColor;
+  ctx.stroke();
 }
 
 function checkCollision() {
@@ -180,7 +179,7 @@ function updateScore() {
   scoreText.textContent = `${player1Score}:${player2Score}`;
 }
 
-function resetGame() {
+function restartGame() {
   // Reset score
   player1Score = 0;
   player2Score = 0;
@@ -201,23 +200,43 @@ function resetGame() {
     y: gameHeight - 100,
   };
 
-  // Reset coordinates
-  ballX = 0;
-  ballY = 0;
+  // Reset ball to center
+  ballX = gameWidth / 2;
+  ballY = gameHeight / 2;
   ballSpeed = 1;
   ballXDirection = 0;
   ballYDirection = 0;
 
-  // Callback functions to set up new game
-  gameStart();
-  updateScore();
   clearInterval(intervalID);
+  clearBoard();
+  drawPaddles();
+  drawBall(ballX, ballY);
+  updateScore();
+  restartButton.textContent = "PRESS ANY KEY OR CLICK ANYWHERE TO START";
+
+  // Reattach start listener
+  document.addEventListener("keydown", startGame);
+  window.addEventListener("mousedown", startGame);
 }
 
 function gameStart() {
+  restartButton.textContent = "RESTART";
+  document.removeEventListener("keydown", startGame);
+  window.removeEventListener("mousedown", startGame);
   nextTick();
   createBall();
 }
 
-gameStart();
+function startGame() {
+  gameStart();
+}
+
+// Draw paddles and ball initially
+clearBoard();
+drawPaddles();
+drawBall(ballX, ballY);
+updateScore();
+
+window.addEventListener("mousedown", startGame);
+document.addEventListener("keydown", startGame);
 window.addEventListener("keydown", changeDirection);
