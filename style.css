@@ -7,32 +7,53 @@
   text-align: center;
   box-sizing: border-box;
   background-color: black;
-  font-family: "Consolas", monospace;
+  font-family: Consolas, monospace;
+}
+
+body {
+  gap: 18px;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 h1 {
-  padding: 10px;
-  font-size: 5rem;
+  padding: 0 20px;
+  font-size: 6rem;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6),
+    0 0 12px rgba(255, 255, 255, 0.5), 0 0 18px rgba(255, 255, 255, 0.4),
+    0 0 24px rgba(255, 255, 255, 0.3);
 }
 
 #gameBoard {
   border: 8px solid white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4),
+    0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2),
+    0 0 40px rgba(255, 255, 255, 0.1);
 }
 
 #scoreText {
-  margin-top: 10px;
-  font-size: 4.5rem;
+  padding: 0 20px;
+  font-size: 6rem;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6),
+    0 0 10px rgba(255, 255, 255, 0.5), 0 0 14px rgba(255, 255, 255, 0.4),
+    0 0 18px rgba(255, 255, 255, 0.3);
 }
 
 #restartButton {
+  border: none;
   cursor: pointer;
-  margin-top: 10px;
-  padding: 5px 10px;
   font-size: 2.5rem;
+  padding: 10px 20px;
   transition: 0.3s ease;
-  border: 3px solid black;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6),
+    0 0 10px rgba(255, 255, 255, 0.5), 0 0 14px rgba(255, 255, 255, 0.4),
+    0 0 18px rgba(255, 255, 255, 0.3);
 }
 
 #restartButton:hover {
-  border: 3px solid hsl(0, 0%, 100%);
+  font-size: 3rem;
 }
