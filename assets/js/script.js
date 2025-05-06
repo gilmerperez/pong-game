@@ -237,19 +237,40 @@ drawPaddles();
 drawBall(ballX, ballY);
 updateScore();
 
+// Touch controls
 window.addEventListener("touchstart", (e) => {
-  const touchY = e.touches[0].clientY;
-  const halfHeight = window.innerHeight / 2;
-  if (touchY < halfHeight) {
-    if (paddle1.y > 0) {
-      paddle1.y -= paddleSpeed;
+  const touch = e.touches[0];
+  const touchY = touch.clientY;
+  const touchX = touch.clientX;
+
+  const halfScreenWidth = window.innerWidth / 2;
+  const halfScreenHeight = window.innerHeight / 2;
+
+  if (touchX < halfScreenWidth) {
+    // Left half of screen: control Player 1
+    if (touchY < halfScreenHeight) {
+      if (paddle1.y > 0) {
+        paddle1.y -= paddleSpeed;
+      }
+    } else {
+      if (paddle1.y < gameHeight - paddle1.height) {
+        paddle1.y += paddleSpeed;
+      }
     }
   } else {
-    if (paddle1.y < gameHeight - paddle1.height) {
-      paddle1.y += paddleSpeed;
+    // Right half of screen: control Player 2
+    if (touchY < halfScreenHeight) {
+      if (paddle2.y > 0) {
+        paddle2.y -= paddleSpeed;
+      }
+    } else {
+      if (paddle2.y < gameHeight - paddle2.height) {
+        paddle2.y += paddleSpeed;
+      }
     }
   }
 });
+
 
 window.addEventListener("mousedown", startGame);
 document.addEventListener("keydown", startGame);
