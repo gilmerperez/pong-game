@@ -44,7 +44,7 @@ h1 {
     0 0 18px rgba(255, 255, 255, 0.3);
 }
 
-#restartButton {
+#restartBtn {
   border: none;
   cursor: pointer;
   font-size: 2.5rem;
@@ -55,7 +55,7 @@ h1 {
     0 0 18px rgba(255, 255, 255, 0.3);
 }
 
-#restartButton:hover {
+#ww:hover {
   font-size: 3rem;
 }
 
@@ -73,11 +73,11 @@ h1 {
     font-size: 4rem;
   }
 
-  #restartButton {
+  #restartBtn {
     font-size: 2rem;
   }
 
-  #restartButton:hover {
+  #restartBtn:hover {
     font-size: 2.1rem;
   }
 }
