@@ -237,6 +237,20 @@ drawPaddles();
 drawBall(ballX, ballY);
 updateScore();
 
+window.addEventListener("touchstart", (e) => {
+  const touchY = e.touches[0].clientY;
+  const halfHeight = window.innerHeight / 2;
+  if (touchY < halfHeight) {
+    if (paddle1.y > 0) {
+      paddle1.y -= paddleSpeed;
+    }
+  } else {
+    if (paddle1.y < gameHeight - paddle1.height) {
+      paddle1.y += paddleSpeed;
+    }
+  }
+});
+
 window.addEventListener("mousedown", startGame);
 document.addEventListener("keydown", startGame);
 window.addEventListener("keydown", changeDirection);
