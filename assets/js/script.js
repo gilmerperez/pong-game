@@ -41,6 +41,21 @@ let paddle2 = {
   y: gameHeight - 100,
 };
 
+// Sounds
+const backgroundSound = new Audio("./assets/sounds/background.wav");
+const paddleHitSound = new Audio("./assets/sounds/paddle-hit.wav");
+const scoreSound = new Audio("./assets/sounds/score.mp3");
+
+// Loop background music
+backgroundSound.loop = true;
+backgroundSound.volume = 0.2;
+backgroundSound.play().catch(() => {
+  // Most browsers block autoplay; wait for user interaction
+  window.addEventListener("click", () => backgroundSound.play(), {
+    once: true,
+  });
+});
+
 function nextTick() {
   intervalID = setTimeout(() => {
     MoveBall();
@@ -108,16 +123,22 @@ function drawBall(ballX, ballY) {
 function checkCollision() {
   if (ballY <= 0 + ballRadius) {
     ballYDirection = ballYDirection * -1;
+    paddleHitSound.currentTime = 0;
+    paddleHitSound.play();
   }
 
   if (ballY >= gameHeight - ballRadius) {
     ballYDirection = ballYDirection * -1;
+    paddleHitSound.currentTime = 0;
+    paddleHitSound.play();
   }
 
   if (ballX >= gameWidth) {
     player1Score = player1Score + 1;
     createBall();
     updateScore();
+    // paddleHitSound.currentTime = 0;
+    // paddleHitSound.play();
     return;
   }
 
@@ -125,6 +146,8 @@ function checkCollision() {
     player2Score = player2Score + 1;
     createBall();
     updateScore();
+    paddleHitSound.currentTime = 0;
+    paddleHitSound.play();
     return;
   }
 
@@ -133,6 +156,8 @@ function checkCollision() {
       ballX = paddle1.x + paddle1.width + ballRadius; // If ball gets stuck
       ballXDirection = ballXDirection * -1;
       ballSpeed++;
+      paddleHitSound.currentTime = 0;
+      paddleHitSound.play();
     }
   }
 
@@ -141,6 +166,8 @@ function checkCollision() {
       ballX = paddle2.x - ballRadius; // If ball gets stuck
       ballXDirection = ballXDirection * -1;
       ballSpeed++;
+      paddleHitSound.currentTime = 0;
+      paddleHitSound.play();
     }
   }
 }
@@ -177,6 +204,8 @@ function changeDirection(event) {
 
 function updateScore() {
   scoreText.textContent = `${player1Score}:${player2Score}`;
+  scoreSound.currentTime = 0;
+  scoreSound.play();
 }
 
 function restartGame() {
@@ -212,7 +241,7 @@ function restartGame() {
   drawPaddles();
   drawBall(ballX, ballY);
   updateScore();
-  restartButton.textContent = "PRESS ANY KEY OR CLICK ANYWHERE TO START";
+  restartButton.textContent = "PLAY";
 
   // Reattach start listener
   document.addEventListener("keydown", startGame);
@@ -270,7 +299,6 @@ window.addEventListener("touchstart", (e) => {
     }
   }
 });
-
 
 window.addEventListener("mousedown", startGame);
 document.addEventListener("keydown", startGame);
