@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-PONG is a classic arcade-style game recreated with modern web technologies including HTML5, CSS3, and vanilla JavaScript. This fully responsive, interactive browser-based application features smooth animations, real-time player controls, dynamic scoring, and both keyboard and mobile touch support. Designed for fun and simplicity, this implementation preserves the nostalgic experience while enhancing accessibility and responsiveness for today’s devices.
+PONG is a classic arcade-style game recreated with modern web technologies including HTML, CSS, and vanilla JavaScript. This fully responsive, interactive browser-based application features smooth animations, real-time player controls, dynamic scoring, and both keyboard and mobile touch support. Designed for fun and simplicity, this implementation preserves the nostalgic experience while enhancing accessibility and responsiveness for today’s devices.
 
 ## Table of Contents
 
