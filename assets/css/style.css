@@ -23,7 +23,6 @@ body {
 h1 {
   padding: 0 20px;
   font-size: 6rem;
-  margin-bottom: 1rem;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.6),
     0 0 12px rgba(255, 255, 255, 0.5), 0 0 18px rgba(255, 255, 255, 0.4),
     0 0 24px rgba(255, 255, 255, 0.3);
@@ -31,6 +30,7 @@ h1 {
 
 #gameBoard {
   cursor: pointer;
+  margin: 1.5rem;
   border: 8px solid white;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.4),
     0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2),
@@ -40,7 +40,6 @@ h1 {
 #scoreText {
   padding: 0 20px;
   font-size: 6rem;
-  margin-top: 1rem;
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.6),
     0 0 10px rgba(255, 255, 255, 0.5), 0 0 14px rgba(255, 255, 255, 0.4),
     0 0 18px rgba(255, 255, 255, 0.3);
