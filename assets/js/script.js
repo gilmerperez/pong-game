@@ -57,6 +57,11 @@ backgroundSound.play().catch(() => {
   });
 });
 
+function playSound(sound) {
+  const clone = sound.cloneNode();
+  clone.play();
+}
+
 function nextTick() {
   intervalID = setTimeout(() => {
     MoveBall();
@@ -125,22 +130,18 @@ function drawBall(ballX, ballY) {
 function checkCollision() {
   if (ballY <= 0 + ballRadius) {
     ballYDirection = ballYDirection * -1;
-    paddleHitSound.currentTime = 0;
-    paddleHitSound.play();
+    playSound(paddleHitSound);
   }
 
   if (ballY >= gameHeight - ballRadius) {
     ballYDirection = ballYDirection * -1;
-    paddleHitSound.currentTime = 0;
-    paddleHitSound.play();
+    playSound(paddleHitSound);
   }
 
   if (ballX >= gameWidth) {
     player1Score = player1Score + 1;
     createBall();
     updateScore();
-    paddleHitSound.currentTime = 0;
-    paddleHitSound.play();
     return;
   }
 
@@ -148,8 +149,6 @@ function checkCollision() {
     player2Score = player2Score + 1;
     createBall();
     updateScore();
-    paddleHitSound.currentTime = 0;
-    paddleHitSound.play();
     return;
   }
 
