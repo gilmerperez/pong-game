@@ -1,3 +1,4 @@
+// HTML DOM Elements
 const gameBoard = document.querySelector("#gameBoard");
 const scoreText = document.querySelector("#scoreText");
 const restartButton = document.querySelector("#restartButton");
@@ -41,10 +42,10 @@ let paddle2 = {
   y: gameHeight - 100,
 };
 
-// Sounds
-const backgroundSound = new Audio("./assets/sounds/background.wav");
-const paddleHitSound = new Audio("./assets/sounds/paddle-hit.wav");
+// Sound effects
 const scoreSound = new Audio("./assets/sounds/score.mp3");
+const paddleHitSound = new Audio("./assets/sounds/paddle-hit.wav");
+const backgroundSound = new Audio("./assets/sounds/background.wav");
 
 // Loop background music
 backgroundSound.loop = true;
@@ -73,12 +74,13 @@ function clearBoard() {
 }
 
 function drawPaddles() {
+  // Paddle borders
   ctx.strokeStyle = paddleBorder;
-
+  // Paddle 1
   ctx.fillStyle = paddle1Color;
   ctx.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
   ctx.strokeRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
-
+  // Paddle 2
   ctx.fillStyle = paddle2Color;
   ctx.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
   ctx.strokeRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
@@ -137,8 +139,8 @@ function checkCollision() {
     player1Score = player1Score + 1;
     createBall();
     updateScore();
-    // paddleHitSound.currentTime = 0;
-    // paddleHitSound.play();
+    paddleHitSound.currentTime = 0;
+    paddleHitSound.play();
     return;
   }
 
@@ -212,7 +214,6 @@ function restartGame() {
   // Reset score
   player1Score = 0;
   player2Score = 0;
-
   // Reset player 1 paddle position
   paddle1 = {
     width: 25,
@@ -220,7 +221,6 @@ function restartGame() {
     x: 0,
     y: 0,
   };
-
   // Reset player 2 paddle position
   paddle2 = {
     width: 25,
@@ -228,7 +228,6 @@ function restartGame() {
     x: gameWidth - 25,
     y: gameHeight - 100,
   };
-
   // Reset ball to center
   ballX = gameWidth / 2;
   ballY = gameHeight / 2;
@@ -242,7 +241,6 @@ function restartGame() {
   drawBall(ballX, ballY);
   updateScore();
   restartButton.textContent = "PLAY";
-
   // Reattach start listener
   document.addEventListener("keydown", startGame);
   window.addEventListener("mousedown", startGame);
@@ -276,7 +274,7 @@ window.addEventListener("touchstart", (e) => {
   const halfScreenHeight = window.innerHeight / 2;
 
   if (touchX < halfScreenWidth) {
-    // Left half of screen: control Player 1
+    // Left half of screen: control player 1
     if (touchY < halfScreenHeight) {
       if (paddle1.y > 0) {
         paddle1.y -= paddleSpeed;
@@ -287,7 +285,7 @@ window.addEventListener("touchstart", (e) => {
       }
     }
   } else {
-    // Right half of screen: control Player 2
+    // Right half of screen: control player 2
     if (touchY < halfScreenHeight) {
       if (paddle2.y > 0) {
         paddle2.y -= paddleSpeed;
