@@ -23,6 +23,7 @@ body {
 h1 {
   padding: 0 20px;
   font-size: 6rem;
+  margin-bottom: 1rem;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.6),
     0 0 12px rgba(255, 255, 255, 0.5), 0 0 18px rgba(255, 255, 255, 0.4),
     0 0 24px rgba(255, 255, 255, 0.3);
@@ -39,6 +40,7 @@ h1 {
 #scoreText {
   padding: 0 20px;
   font-size: 6rem;
+  margin-top: 1rem;
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.6),
     0 0 10px rgba(255, 255, 255, 0.5), 0 0 14px rgba(255, 255, 255, 0.4),
     0 0 18px rgba(255, 255, 255, 0.3);
@@ -47,7 +49,7 @@ h1 {
 #restartBtn {
   border: none;
   cursor: pointer;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   padding: 10px 20px;
   transition: 0.3s ease;
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.6),
@@ -55,13 +57,13 @@ h1 {
     0 0 18px rgba(255, 255, 255, 0.3);
 }
 
-#ww:hover {
-  font-size: 3rem;
+#restartBtn:hover {
+  font-size: 3.75rem;
 }
 
 @media (max-width: 600px) {
   h1 {
-    font-size: 5rem;
+    font-size: 4.5rem;
   }
 
   #gameBoard {
@@ -70,7 +72,7 @@ h1 {
   }
 
   #scoreText {
-    font-size: 4rem;
+    font-size: 4.5rem;
   }
 
   #restartBtn {
@@ -78,6 +80,6 @@ h1 {
   }
 
   #restartBtn:hover {
-    font-size: 2.1rem;
+    font-size: 2.25rem;
   }
 }
