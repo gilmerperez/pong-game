@@ -1,7 +1,7 @@
 // HTML DOM Elements
 const gameBoard = document.querySelector("#gameBoard");
 const scoreText = document.querySelector("#scoreText");
-const restartButton = document.querySelector("#restartButton");
+const restartBtn = document.querySelector("#restartBtn");
 const ctx = gameBoard.getContext("2d");
 
 // Constant game variables
@@ -240,14 +240,14 @@ function restartGame() {
   drawPaddles();
   drawBall(ballX, ballY);
   updateScore();
-  restartButton.textContent = "PLAY";
+  restartBtn.textContent = "PLAY";
   // Reattach start listener
   document.addEventListener("keydown", startGame);
   window.addEventListener("mousedown", startGame);
 }
 
 function gameStart() {
-  restartButton.textContent = "RESTART";
+  restartBtn.textContent = "RESTART";
   document.removeEventListener("keydown", startGame);
   window.removeEventListener("mousedown", startGame);
   nextTick();
@@ -298,6 +298,7 @@ window.addEventListener("touchstart", (e) => {
   }
 });
 
+restartBtn.addEventListener("click", restartGame);
 window.addEventListener("mousedown", startGame);
 document.addEventListener("keydown", startGame);
 window.addEventListener("keydown", changeDirection);
